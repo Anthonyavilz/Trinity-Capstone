@@ -4,9 +4,9 @@
   "main": "server/index.js",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "start": "next dev",
     "build": "next build",
-    "start": "next start",
+    "product": "next start",
     "lint": "next lint"
   },
   "dependencies": {
