@@ -1,15 +1,15 @@
 import NarutoLayout from "@/Components/Naruto/NarutoLayout"
-import NarutoHomePage from "@/Components/Naruto/NarutoHomePage"
+import HandSigns from "@/Components/Naruto/HandSign"
 
 
-const NarutoApp = () => {
+const handSigns = () => {
     return (
         <div>
             <NarutoLayout>
-                <NarutoHomePage/>
+                <HandSigns/>
             </NarutoLayout>
         </div>
     )
 }
 
-export default NarutoApp
+export default handSigns

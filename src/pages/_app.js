@@ -1,8 +1,14 @@
-import '../../styles/globals.css'; // Global styles
+// import '../../styles/globals.css'; // Global styles
+import { Provider } from 'react-redux'
+import store from '@/Store/Redux/ReduxStore';
 
 function RootLevel({ Component, pageProps }) {
     return (
-        <Component {...pageProps} />
+        <>
+        <Provider store={store} >
+            <Component {...pageProps} />
+        </Provider>
+        </>
     );
 }
 
