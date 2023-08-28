@@ -1,0 +1,60 @@
+/* footerStyle.module.css */
+
+/* Importing variables and styles */
+/* @import "../../material-ui-styles/materialStyles.module.css"; */
+
+/* Footer Style */
+.block {
+  color: inherit;
+  padding: 0.9375rem;
+  font-weight: 250;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  text-decoration: none;
+  position: relative;
+  display: block;
+}
+
+.left {
+  float: left!important;
+  display: block;
+}
+
+.right {
+  padding: 15px 0;
+  margin: 0;
+  float: right!important;
+}
+
+.footer {
+  padding: 0.9375rem 0;
+  text-align: center;
+  display: flex;
+}
+
+.p {
+  color: #000000;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+
+.list {
+  margin-bottom: 0;
+  padding: 0;
+  margin-top: 0;
+}
+
+.inlineBlock {
+  display: inline-block;
+  padding: 0px;
+  width: auto;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 3px;
+}

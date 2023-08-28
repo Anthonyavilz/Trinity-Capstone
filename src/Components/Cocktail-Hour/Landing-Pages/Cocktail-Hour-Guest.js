@@ -1,6 +1,5 @@
 import Head from "next/head";
-import GuestHeader from "./GuestHeader";
-import GuestFooter from "./GuestFooter";
+import Footer from "./Footer/Footer";
 
 const CHGuest = ({children}) => {
     return (
@@ -8,9 +7,9 @@ const CHGuest = ({children}) => {
             <Head>
                 <title>Cocktail Hour</title>
             </Head>
-            <GuestHeader/>
+            {/* <GuestHeader/> */}
             {children}
-            <GuestFooter/>
+            <Footer/>
         </div>
     )
 }
