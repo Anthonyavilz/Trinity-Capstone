@@ -27,7 +27,7 @@ const VillagePage = () => {
     }
 
     return (
-        <div>
+        <div className='village-page' >
             <ImageMapper src={URL} map={MAP} onClick={handleRainAreaClick}/>
         </div>
     )
