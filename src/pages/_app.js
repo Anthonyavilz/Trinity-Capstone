@@ -6,9 +6,9 @@ import store from '@/Store/Redux/ReduxStore';
 function RootLevel({ Component, pageProps }) {
     return (
         <>
-        <Provider store={store} >
-            <Component {...pageProps} />
-        </Provider>
+            <Provider store={store} >
+                <Component {...pageProps} />
+            </Provider>
         </>
     );
 }

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Footer from "./Footer/Footer";
+import Footer from "../Footer/Footer";
 
 const CHGuest = ({children}) => {
     return (
@@ -7,7 +7,6 @@ const CHGuest = ({children}) => {
             <Head>
                 <title>Cocktail Hour</title>
             </Head>
-            {/* <GuestHeader/> */}
             {children}
             <Footer/>
         </div>

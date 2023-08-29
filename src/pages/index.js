@@ -2,7 +2,7 @@ import Head from "next/head"
 
 import HomePage from "@/Components/Main-App/HomePage"
 import HomeHeader from "@/Components/Main-App/HomeHeader"
-import HomeFooter from "@/Components/Main-App/HomeFooter"
+import { NextUIProvider } from "@nextui-org/react" 
 
 const MainApp = () => {
     return (
@@ -10,9 +10,10 @@ const MainApp = () => {
             <Head>
                 <title>Portfolio</title>
             </Head>
+            <NextUIProvider>
             <HomeHeader/>
             <HomePage/>
-            <HomeFooter/>
+            </NextUIProvider>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import landing from 'public/Images/Cocktail-Hour-Images/cocktailhour-20.jpg'
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 
 const WelcomePage = () => {
@@ -15,14 +15,11 @@ const WelcomePage = () => {
     return (
         <div className="main-background" >
             <div className="logo" >
-                <Grid container justifyContent='center' >
-                    <Image
-                        src={landing}
-                        alt="logo"
-                        onClick={handleClick}
-                    >
-                    </Image>
-                </Grid>
+                <Image 
+                    src={landing}
+                    alt=""
+                    onClick={handleClick}
+                />
             </div>
         </div>
     )
