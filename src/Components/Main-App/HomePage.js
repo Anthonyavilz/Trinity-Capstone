@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import cocktailLogo from '../../../public/Images/Cocktail-Hour-Images/cocktailhour-20.jpg'
+import cocktailLogo from '../../../public/Images/Cocktail-Hour-Images/cocktailhour-02.jpg'
 import handSeal from '../../../public/Images/Naruto-Images/Tiger.jpg'
 
 const HomePage = () => {
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-black">
                 <div className="hero-content flex-col lg:flex-row">
                     <Link href='/naruto'>
                         <Image
@@ -27,11 +27,13 @@ const HomePage = () => {
             </div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <Image
-                        src={cocktailLogo}
-                        className="max-w-sm rounded-lg shadow-2xl"
-                        alt=""
-                />
+                <Link href='/cocktail-hour'>
+                        <Image
+                            src={cocktailLogo}
+                            className="max-w-sm rounded-lg shadow-2xl"
+                            alt=""
+                        />
+                    </Link>
                 <div>
                     <h1 className="text-5xl font-bold">Box Office News!</h1>
                     <p className="py-6">

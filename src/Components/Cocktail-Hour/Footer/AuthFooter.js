@@ -12,37 +12,30 @@ const Footer = () => {
                 <div className={styles.left} >
                     <List className={styles.list} >
                         <ListItem className={styles.inlineBlock}>
-                            <Link className={styles.block} href='/cocktail-hour/guest' >
+                            <Link className={styles.block} href='/cocktail-hour/user' >
                                 <p className={styles.p} >
                                     Cocktail Hour
                                 </p>
                             </Link>
                         </ListItem>
                         <ListItem className={styles.inlineBlock}>
-                            <Link className={styles.block} href='/cocktail-hour/aboutMe' >
+                            <Link className={styles.block} href='/cocktail-hour/post' >
                                 <p className={styles.p} >
-                                    About Me
+                                    Post
                                 </p>
                             </Link>
                         </ListItem>
                         <ListItem className={styles.inlineBlock}>
-                            <Link className={styles.block} href='/cocktail-hour/aboutChristina' >
+                            <Link className={styles.block} href='/cocktail-hour/mapView' >
                                 <p className={styles.p} >
-                                    About Christina
+                                    Map View
                                 </p>
                             </Link>
                         </ListItem>
                         <ListItem className={styles.inlineBlock}>
-                            <Link className={styles.block} href='/cocktail-hour/guest/cocktailRegister' >
+                            <Link className={styles.block} href='/cocktail-hour/guest' >
                                 <p className={styles.p} >
-                                    Register
-                                </p>
-                            </Link>
-                        </ListItem>
-                        <ListItem className={styles.inlineBlock}>
-                            <Link className={styles.block} href='/cocktail-hour/guest/cocktailLogin' >
-                                <p className={styles.p} >
-                                    Login
+                                    Logout
                                 </p>
                             </Link>
                         </ListItem>
@@ -57,5 +50,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-// here I can conditional render (ternary) to hold the token and display the approriate buttons like the header

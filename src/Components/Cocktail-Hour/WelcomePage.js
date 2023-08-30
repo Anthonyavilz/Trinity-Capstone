@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import landing from 'public/Images/Cocktail-Hour-Images/cocktailhour-20.jpg'
 import Grid from "@mui/material/Grid";
-
+import Link from "next/link";
 
 const WelcomePage = () => {
     

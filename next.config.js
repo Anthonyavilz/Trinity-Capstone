@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // phases: [
-        
-    // ]
+    images: {
+        domains: ['zeldatearsofthekingdom.wiki.fextralife.com'],
+    },
 }
 
 module.exports = nextConfig

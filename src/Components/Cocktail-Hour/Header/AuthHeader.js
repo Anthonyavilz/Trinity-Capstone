@@ -26,17 +26,19 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
-    const handleChristina = () => {
-        router.push('/cocktail-hour')
+    const handleProfile = () => {
+        router.push('/cocktail-hour/user')
     }
 
-    const handleMe = () => {
-        router.push('/cocktail-hour')
+    const handleMap = () => {
+        router.push('/cocktail-hour/user/mapView.js')
     }
 
-    const handleRegister = () => {
-        router.push('/cocktail-hour/guest/cocktailRegister')
+    const handlePost = () => {
+        router.push('/cocktail-hour/user/post')
     }
+
+    // This is where I can handle the onClick action for the logout with a new MenuItem thing
 
     return (
         <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none'}}>
@@ -64,7 +66,6 @@ const Header = () => {
                 <Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Open Menu">
                         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            {/* <Avatar/> */}
                             <LocalBarIcon sx={{color: 'white'}} fontSize="large" />
                         </IconButton>
                     </Tooltip>
@@ -84,14 +85,14 @@ const Header = () => {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-                        <MenuItem onClick={handleChristina}>
-                            <Typography textAlign="center">About Me</Typography>
+                        <MenuItem onClick={handleProfile}>
+                            <Typography textAlign="center">Home</Typography>
                         </MenuItem>
-                        <MenuItem onClick={handleMe}>
-                            <Typography textAlign="center">About Christina</Typography>
+                        <MenuItem onClick={handlePost}>
+                            <Typography textAlign="center">Post</Typography>
                         </MenuItem>
-                        <MenuItem onClick={handleRegister}>
-                            <Typography textAlign="center">Register/Login</Typography>
+                        <MenuItem onClick={handleMap}>
+                            <Typography textAlign="center">Map View</Typography>
                         </MenuItem>
                     </Menu>
                 </Box>
