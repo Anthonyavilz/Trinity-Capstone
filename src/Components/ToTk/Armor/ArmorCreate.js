@@ -1,138 +1,185 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setHelmOptions, setChestOptions, setLegOptions, clearOptions, setSelectedHelm, setSelectedChest, setSelectedLeg } from '@/Store/Redux/Slices/armorSlice'
+import { setArmorName } from '@/Store/Redux/Slices/armorNameSlice'
+import axios from "axios"
 
 const ArmorCreate = () => {
 
     const totk = process.env.NEXT_PUBLIC_API_TOTK
 
-    const [helmOptions, setHelmOptions] = useState([])
-    const [chestOptions, setChestOptions] = useState([])
-    const [legOptions, setLegOptions] = useState([])
-    const [selectedHelm, setSelectedHelm] = useState('');
-    const [selectedChest, setSelectedChest] = useState('');
-    const [selectedLeg, setSelectedLeg] = useState('');
-    const [selectedArmorSetName, setSelectedArmorSetName] = useState('')
+    const dispatch = useDispatch()
+
+    const { helmOptions, chestOptions, legOptions, selectedHelm, selectedChest, selectedLeg } = useSelector((state) => state.armor)
+    const { armorName } = useSelector(state => state.name)
+    const user = useSelector(state => state.auth.userId)
+    console.log('userId', user)
+
+    const [sets, setSets] = useState([])
+
 
     const fetchHelms = async () => {
-        await 
-            axios
-                .get(`${totk}/helms`)
-                .then(res => {
-                    setHelmOptions(res.data)
-                    // console.log('line 16', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-    }
+        try {
+            const response = await axios.get(`${totk}/helms`);
+            dispatch(setHelmOptions(response.data));
+            console.log('success in fetchHelms', response.data)
+        } catch (error) {
+            console.log('error in fetchHelms', error);
+        }
+    };
 
     const fetchChest = async () => {
-        await 
-            axios
-                .get('/chest')
-                .then(res => {
-                    setChestOptions(res.data)
-                    // console.log('line 29', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+        try {
+            const response = await axios.get(`${totk}/chest`)
+            dispatch(setChestOptions(response.data))
+        } catch (error) {
+            console.log('error fetchChest', error)
+        }
     }
 
-    const fetchLeg = async () => {
-        await 
-            axios
-                .get('/leg')
-                .then(res => {
-                    setLegOptions(res.data)
-                    // console.log('line 42', res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+    const fetchLegs = async () => {
+        try {
+            const response = await axios.get(`${totk}/leg`)
+            dispatch(setLegOptions(response.data))
+        } catch (error) {
+            console.log('error fetchLeg', error)
+        }
+    }
+
+    const fetchArmorSets = async () => {
+        try {
+            const response = await axios.get(`${totk}/sets/${user}`)
+            // setSets(response.data)
+            console.log('successful pull on armor', response.data)
+        } catch (error) {
+            console.log('error fetching user armor', error)
+        }
     }
 
     useEffect(() => {
         fetchHelms()
         fetchChest()
-        fetchLeg()
+        fetchLegs()
+        fetchArmorSets()
     }, [])
 
     const handleHelmChange = (e) => {
-        setSelectedHelm(e.target.value);
+        console.log(e.target.value)
+        dispatch(setSelectedHelm(e.target.value))
     };
-    
+
     const handleChestChange = (e) => {
-        setSelectedChest(e.target.value);
+        console.log(e.target.value)
+        dispatch(setSelectedChest(e.target.value))
     };
 
     const handleLegChange = (e) => {
-        setSelectedLeg(e.target.value);
+        console.log(e.target.value)
+        dispatch(setSelectedLeg(e.target.value))
     };
 
     const onSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        console.log('line 75', selectedArmorSetName)
-        console.log('line 76', +selectedHelm)
-        console.log('line 77', +selectedChest)
-        console.log('line 78', +selectedLeg)
+        console.log('helm', selectedHelm)
+        console.log('chest', selectedChest)
+        console.log('leg', selectedLeg)
+        console.log('name', armorName)
+        console.log('userID', user)
 
-        const armorObj = {
-            nameEntry: selectedArmorSetName,
-            helmEntry: +selectedHelm,
-            chestEntry: +selectedChest,
-            legEntry: +selectedLeg
+        const armorPost = {
+            nameEntry: armorName,
+            helmEntry: selectedHelm,
+            chestEntry: selectedChest,
+            legEntry: selectedLeg,
+            userId: user
         }
 
         await
             axios
-                .post('/armorset', armorObj)
+                .post(`${totk}/armorset`, armorPost)
                 .then((res) => {
-                    console.log(res.data)
-                    setSelectedHelm('')
-                    setSelectedChest('')
-                    setSelectedLeg('')
-                    setSelectedArmorSetName('')
+                    console.log('success in submit', res.data)
                 })
-                .catch(err => {
-                    console.log(err)
-                })
+                .catch(err => console.log(err0))
 
+        dispatch(clearOptions())
     }
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <select value={selectedHelm} onChange={handleHelmChange}>
-                    <option value=''>Select...</option>
-                    {helmOptions.map((helm) => (
-                        <option key={helm.helm_id} value={helm.helm_id}>{helm.helmName}</option>
-                    ))}
-                </select>
-                <select value={selectedChest} onChange={handleChestChange}>
-                    <option value=''>Select...</option>
-                    {chestOptions.map((chest) => (
-                        <option key={chest.chest_id} value={chest.chest_id}>{chest.chestName}</option>
-                    ))}
-                </select>
-                <select value={selectedLeg} onChange={handleLegChange}>
-                    <option value=''>Select...</option>
-                    {legOptions.map((leg) => (
-                        <option key={leg.leg_id} value={leg.leg_id}>{leg.legName}</option>
-                    ))}
-                </select>
-                <input
-                    type='text'
-                    placeholder='Armor Set Name'
-                    value={selectedArmorSetName}
-                    onChange={(e) => setSelectedArmorSetName(e.target.value)}
-                />
-                <button type='submit' >Submit</button>
-            </form>
+        <div className="hero min-h-screen" style={{backgroundColor: '#2a3333'}}>
+            <div className="hero-content flex-row w-auto">
+                <div className="card flex-row w-full max-x-sm shadow-2xl bg-slate-100">
+                    <div className="card-body">
+                        <form onSubmit={onSubmit} className="flex flex-col">
+                            <div className="form-control">
+                                <select className="select w-full max-w-xs" value={selectedHelm} onChange={handleHelmChange}>
+                                    <option value=''>Select...</option>
+                                    {helmOptions.map((helm) => (
+                                        <option key={helm.helm_id} value={helm.helm_id}>{helm.helmName}</option>
+                                    ))}
+                                </select>
+                                <div className="divider" ></div>
+                                <select className="select w-full max-w-xs" value={selectedChest} onChange={handleChestChange}>
+                                    <option value=''>Select...</option>
+                                    {chestOptions.map((chest) => (
+                                        <option key={chest.chest_id} value={chest.chest_id}>{chest.chestName}</option>
+                                        ))}
+                                </select>
+                                <div className="divider" ></div>
+                                <select className="select w-full max-w-xs" value={selectedLeg} onChange={handleLegChange}>
+                                    <option value=''>Select...</option>
+                                    {legOptions.map((leg) => (
+                                        <option key={leg.leg_id} value={leg.leg_id}>{leg.legName}</option>
+                                        ))}
+                                </select>
+                                <div className="divider" ></div>
+                                <input
+                                    className="input input-bordered w-full max-w-xs"
+                                    type='text'
+                                    placeholder='Armor Set Name'
+                                    value={armorName}
+                                    onChange={(e) => dispatch(setArmorName(e.target.value))}
+                                />
+                                <div className="divider" ></div>
+                                <button className="btn glass" type='submit' >Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
 export default ArmorCreate
+
+{/* <div>
+<form onSubmit={onSubmit}>
+    <select value={selectedHelm} onChange={handleHelmChange}>
+        <option value=''>Select...</option>
+        {helmOptions.map((helm) => (
+            <option key={helm.helm_id} value={helm.helm_id}>{helm.helmName}</option>
+        ))}
+    </select>
+    <select value={selectedChest} onChange={handleChestChange}>
+        <option value=''>Select...</option>
+        {chestOptions.map((chest) => (
+            <option key={chest.chest_id} value={chest.chest_id}>{chest.chestName}</option>
+        ))}
+    </select>
+    <select value={selectedLeg} onChange={handleLegChange}>
+        <option value=''>Select...</option>
+        {legOptions.map((leg) => (
+            <option key={leg.leg_id} value={leg.leg_id}>{leg.legName}</option>
+        ))}
+    </select>
+    <input
+        type='text'
+        placeholder='Armor Set Name'
+        value={armorName}
+        onChange={(e) => dispatch(setArmorName(e.target.value))}
+    />
+    <button type='submit' >Submit</button>
+</form>
+</div> */}

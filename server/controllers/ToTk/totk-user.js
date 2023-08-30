@@ -41,9 +41,9 @@ module.exports = {
 
     getArmorSets: async (req, res) => {
         try {
-            const { id } = req.params
+            const { userId } = req.params
             const sets = await ArmorSet.findAll({
-                where: {totk_user: id},
+                where: {totk_user: userId},
                 include: [
                 {
                     model: Helm,

@@ -60,14 +60,14 @@ const { addPost, getLocations, getUserPost, editUserPost, deleteUserPost } = req
     cocktailApp.delete('/cocktail/posts/:id', deleteUserPost)
 
 cocktailSequelize
-    .sync({force: true})
-    .then(() => {
-        console.log('Tables sent')
-    })
-    // .sync()
+    // .sync({force: true})
     // .then(() => {
     //     console.log('Tables sent')
     // })
+    .sync()
+    .then(() => {
+        console.log('Tables sent')
+    })
     .catch((err) => {
         console.log('Connection Error in Cocktail-Hour')
     })
@@ -100,20 +100,20 @@ const seed = require('./util/totkSeed')
 
     // ToTK User Functions
     totkApp.post('/armorset', addArmorSet)
-    totkApp.get('/sets/:id', getArmorSets)
+    totkApp.get('/sets/:userId', getArmorSets)
     totkApp.post('/user-favorite', usersFavorite)
     totkApp.get('/user-favorite/:userId', getUsersFavorite)
 
 totkSequelize
-    .sync({force: true})
-    .then(() => {
-        console.log('ToTK tables and data sent')
-        seed()
-    })
-    // .sync()
+    // .sync({force: true})
     // .then(() => {
-    //     console.log('ToTK tables sent')
+    //     console.log('ToTK tables and data sent')
+    //     seed()
     // })
+    .sync()
+    .then(() => {
+        console.log('ToTK tables sent')
+    })
     .catch((err) => {
         console.log('Connection error in ToTK')
     })

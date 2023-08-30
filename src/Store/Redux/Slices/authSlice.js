@@ -4,7 +4,7 @@ const initialState = {
     token: null,
     username: null,
     userId: null,
-    isAithenticated: false,
+    isAuthenticated: false,
     expiration: null
 }
 
@@ -16,7 +16,7 @@ const authSlice = createSlice({
             state.token = action.payload.token
             state.username = action.payload.username
             state.userId = action.payload.userId
-            state.isAithenticated = true
+            state.isAuthenticated = true
             state.expiration = action.payload.exp
         },
         clearAuthData: (state) => {

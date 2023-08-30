@@ -3,7 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     helmOptions: [],
     chestOptions: [],
-    legOptions: []
+    legOptions: [],
+    selectedHelm: '',
+    selectedChest: '',
+    selectedLeg: ''
 }
 
 const armorSlice = createSlice({
@@ -19,18 +22,32 @@ const armorSlice = createSlice({
         setLegOptions: (state, action) => {
             state.legOptions = action.payload
         },
+        setSelectedHelm: (state, action) => {
+            state.selectedHelm = action.payload
+        },
+        setSelectedChest: (state, action) => {
+            state.selectedChest = action.payload
+        },
+        setSelectedLeg: (state, action) => {
+            state.selectedLeg = action.payload
+        },
         clearOptions: (state) => {
-            state.helmOptions = []
-            state.chestOptions = []
-            state.legOptions = []
+            state.selectedHelm = ''
+            state.selectedChest = ''
+            state.selectedLeg = ''
         },
     }
 })
+
+// console.log('in armorSlice', armorSlice)
 
 export const { 
     setHelmOptions,
     setChestOptions,
     setLegOptions,
+    setSelectedHelm,
+    setSelectedChest,
+    setSelectedLeg,
     clearOptions
 } = armorSlice.actions
 

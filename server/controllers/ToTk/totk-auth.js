@@ -49,6 +49,7 @@ module.exports = {
                 const token = createToken(newUser.dataValues.username, newUser.dataValues.user_id)
                 console.log('token in register', token)
                 const exp = Date.now() + 1000 * 60 * 60 * 48
+                console.log('the new user', {username: newUser.dataValues.username, userId: newUser.dataValues.user_id, token, exp})
                 res.status(200).send({username: newUser.dataValues.username, userId: newUser.dataValues.user_id, token, exp})
             }
             
