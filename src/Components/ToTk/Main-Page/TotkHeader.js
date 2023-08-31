@@ -45,7 +45,7 @@ const TotkHeader = () => {
 
   const handleLogout = () => {
     dispatch(clearAuthData())
-    router.push('/totk')
+    router.reload('/totk')
   }
 
   return (

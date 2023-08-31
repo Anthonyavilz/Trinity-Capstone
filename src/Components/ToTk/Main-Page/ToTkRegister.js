@@ -42,7 +42,7 @@ const ToTkRegister = () => {
                 .then((res) => {
                     console.log(res.data)
                     dispatch(setAuthData(res.data))
-                    router.push('/totk')
+                    router.push('/totk/user')
                 })
                 .catch(err => console.log(err))
     }
