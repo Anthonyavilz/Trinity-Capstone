@@ -51,7 +51,7 @@ const HelmPage = () => {
 
     return (
         <div className="hero min-h-screen" style={{backgroundColor: '#2a3333'}}>
-            <div className="hero-content bg-transparent">
+            <div className="hero-content bg-transparent flex flex-wrap">
                 {helmCards}
             </div>
         </div>

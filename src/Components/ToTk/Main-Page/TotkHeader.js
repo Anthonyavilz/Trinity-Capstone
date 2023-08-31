@@ -45,7 +45,11 @@ const TotkHeader = () => {
 
   const handleLogout = () => {
     dispatch(clearAuthData())
-    router.reload('/totk')
+    router.push('/totk')
+  }
+
+  const handleTotkUser = () => {
+    router.push('/totk/user')
   }
 
   return (
@@ -122,7 +126,7 @@ const TotkHeader = () => {
             <a onClick={handleHome} > - Trinity Home</a>
           </li>
           <li>
-            <a onClick={handleTotk} > - Home</a>
+            <a onClick={handleTotkUser} > - Home</a>
           </li>
           <li>
             <a onClick={handleHelm} > - Helms</a>
