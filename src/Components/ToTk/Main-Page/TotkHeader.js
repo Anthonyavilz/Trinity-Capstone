@@ -28,7 +28,7 @@ const TotkHeader = () => {
   };
 
   const handleLogin = () => {
-    router.push("/totk/totkAuth");
+    router.push("/totk/totkLogin");
   };
 
   const handleHome = () => {
@@ -36,7 +36,7 @@ const TotkHeader = () => {
   }
 
   const handleRegister = () => {
-    router.push('/totk/totkAuth')
+    router.push('/totk/totkRegister')
   }
 
   const handleCreate = () => {

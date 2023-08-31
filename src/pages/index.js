@@ -11,7 +11,7 @@ const MainApp = () => {
                 <title>Portfolio</title>
             </Head>
             <NextUIProvider>
-            <HomeHeader/>
+            {/* <HomeHeader/> */}
             <HomePage/>
             </NextUIProvider>
         </div>
