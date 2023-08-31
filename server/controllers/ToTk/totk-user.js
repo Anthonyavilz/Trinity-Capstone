@@ -23,11 +23,6 @@ module.exports = {
         try {
             const { armorSetId } = req.body
 
-            const armorSet = await ArmorSet.findByPk(armorSetId)
-            if(!armorSet) {
-                return res.status(400).send('Armor set not found')
-            }
-
             const newFavorite = await Favorites.create({
                 usersFavorite: armorSetId
             })
