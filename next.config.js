@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['zeldatearsofthekingdom.wiki.fextralife.com'],
+        domains: ['zeldatearsofthekingdom.wiki.fextralife.com', 'anbulegacy.com'],
     },
 }
 

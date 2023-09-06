@@ -29,9 +29,9 @@ const ToTKUser = () => {
     const armor = userSets.map((creation) => {
         return (
             <div className="hero min-h-screen" style={{background: "url('https://images7.alphacoders.com/131/1314890.jpg')"}} key={creation.armorSet_id}>
-                <div className="card-body" style={{backgroundColor: '#9ca4a2'}}>
-                    <div className="card-title font-bold" >{creation.armorName}</div>
-                    <div className="flex flex-row">
+                <div className="card-body rounded-3xl" style={{backgroundColor: '#9ca4a2'}}>
+                    <div className="card-title font-bold text-5xl" >{creation.armorName}</div>
+                    <div className="flex flex-row p-2">
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <div className="card-body">
                                 <h2 className="card-title">{creation.Helm.helmName}</h2>

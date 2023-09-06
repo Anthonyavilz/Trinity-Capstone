@@ -5,7 +5,7 @@ const VillagePage = () => {
     
     const router = useRouter()
 
-    const URL = 'https://i0.wp.com/anbulegacy.com/wp-content/uploads/2021/05/world-map-edit.jpg?resize=1080%2C635&ssl=1'
+    const URL = 'https://anbulegacy.com/wp-content/uploads/2021/05/world-map-edit.jpg'
     const MAP = {
         name: 'world-map',
         areas: [
