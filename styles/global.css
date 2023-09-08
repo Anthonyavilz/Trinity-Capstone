@@ -30,6 +30,7 @@ body {
 .navBar h1 {
     font-size: xx-large;
     color: white;
+    /* text-decoration: underline; */
 }
 
 .navBar button {
@@ -38,6 +39,7 @@ body {
     font-size: 20px;
     border: 0;
     padding: 0px 10px;
+    text-decoration: underline;
 }
 
 .navBar button:hover {
@@ -60,11 +62,53 @@ body {
 
 /* ----------------- Village Page Section CSS -----------------*/
 .village-page {
-    height: 91.5vh;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.village-page h1 {
+    font-size: x-large;
+    padding-top: 25px;
+}
+
+.worldMap {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.village-cards {
+    height: auto;
+    width: 100%;
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.villageCard {
+    height: 25vh;
+    width: 45%;
+    background-color: #000000;
+    color: white;
+    border-radius: 0%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.villageCard p {
+    padding-top: 10px;
+    text-decoration: underline;
 }
 
 /* ----------------- Hand Signs Section CSS -----------------*/
