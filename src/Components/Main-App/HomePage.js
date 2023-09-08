@@ -34,14 +34,14 @@ const HomePage = () => {
                             <li>The first major update to this app was primarily refactoring, reorganizing and updating the code to use modern React useState to manage the different states.</li>
                             <li>Second major update was instead of using conditional rendering to display diferrent `pages`, I used React-Router-Dom in order to build a functiong navigation bar and functionality with routes</li>
                             <li>With this project being housed in Next.js, instead of using React-Router-Dom, it utilizes Next.js`s pages directory to manage the different routes</li>
-                            <li>The other updates were having the selector tabs display the images of the hand seals, along with proper information sections about the various villages that also used a image mapper to make clickable areas on a map display.</li>
+                            <li>The other updates were having the selector tabs display the images of the hand seals, along with proper information sections about the various villages with clickable cards below the world map that link to a fandom wiki</li>
                             </ul>
                         </li>
                         <li className="py-6">
                             <p className="mb-2">Tech:</p>
                             <ul className="ml-8 list-disc text-xl">
                             <li>Next.js / React</li>
-                            <li>React-Img-Mapper</li>
+                            <li>React-Select</li>
                             <li>Node.js / Express / Axios</li>
                             </ul>
                         </li>
