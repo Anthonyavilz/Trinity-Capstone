@@ -125,8 +125,8 @@ app.prepare().then(() => {
 
 
     // Port Listens
-    narutoApp.listen(process.env.PORT || 3000, () => console.log(`Naruto running on port ${narutoPort}`));
-    cocktailApp.listen(process.env.PORT || 3000, () => console.log(`Servings drinks on port ${cocktailPort}`))
-    totkApp.listen(process.env.PORT || 3000, () => console.log(`Saving Zelda on port ${totkPort}`));
+    narutoApp.listen(process.env.PORT || 3000, () => console.log(`Naruto running on port ${process.env.PORT || 3000}`));
+    cocktailApp.listen(process.env.PORT || 3000, () => console.log(`Servings drinks on port ${process.env.PORT || 3000}`))
+    totkApp.listen(process.env.PORT || 3000, () => console.log(`Saving Zelda on port ${process.env.PORT || 3000}`));
 })
 
