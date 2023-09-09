@@ -231,12 +231,14 @@ const CreateJutsu = () => {
                 </div>
             </form>
             <br/>
-            {mappedJutsu.length >= 1 ? mappedJutsu 
-            : 
-            <div className="beforeCreation">
-                <h1> Create a Jutsu Above!</h1>
+            <div className="tableContainer">
+                {mappedJutsu.length >= 1 ? mappedJutsu 
+                : 
+                <div className="beforeCreation">
+                    <h1> Create a Jutsu Above!</h1>
+                </div>
+                }
             </div>
-            }
         </div>
     )
 }
