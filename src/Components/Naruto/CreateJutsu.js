@@ -18,6 +18,8 @@ import Hare from 'public/Images/Naruto-Images/Hare.jpg'
 
 const CreateJutsu = () => {
 
+    const naruto = process.env.NEXT_PUBLIC_API_NARUTO
+
     const options = [
         {
             value: 'Saru/Monkey',
@@ -87,7 +89,7 @@ const CreateJutsu = () => {
 
     const fetchJutsus = () => {
         axios
-            .get(`/naruto`)
+            .get(`${naruto}/naruto`)
             .then((res) => {
             console.log('line 92', res.data)
             setUserJutsus(res.data)
@@ -126,7 +128,7 @@ const CreateJutsu = () => {
 
         await
             axios
-                .post(`/naruto`, submitBody)
+                .post(`${naruto}/naruto`, submitBody)
                 .then((res) => {
                     console.log(res.data)
                     // setUserJutsus(res.data)
@@ -140,7 +142,7 @@ const CreateJutsu = () => {
     const handleDelete = async (id) => {
         await
             axios
-                .delete(`/naruto/${id}`)
+                .delete(`${naruto}/naruto/${id}`)
                 .then(res => {
                     fetchJutsus()
                 })
